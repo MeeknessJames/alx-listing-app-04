@@ -1,3 +1,5 @@
+import ReviewSection from "./ReviewSection";
+
 type Property = {
   id: number;
   title: string;
@@ -20,7 +22,11 @@ export default function PropertyDetail({ property }: { property: Property }) {
       <h1 className="text-2xl font-bold mb-2">{property.title}</h1>
       <p className="text-gray-600 mb-2">{property.location}</p>
       <p className="text-green-600 font-bold mb-4">${property.price}/night</p>
-      {property.description && <p className="text-gray-700">{property.description}</p>}
+      {property.description && <p className="text-gray-700 mb-4">{property.description}</p>}
+
+      {/* Reviews Section */}
+      <h2 className="text-xl font-semibold mt-6 mb-2">Reviews</h2>
+      <ReviewSection propertyId={property.id} />
     </div>
   );
 }
